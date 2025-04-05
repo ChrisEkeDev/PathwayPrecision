@@ -1,22 +1,24 @@
-import { Routes, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import ScrollToTop from './hooks/ScrollToTop'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Home from './pages/home/Home'
-import About from './pages/about/About'
+import Services from './pages/services/Services'
 import Contact from './pages/contact/Contact'
-import './App.css'
+import './App.scss'
 
 function App() {
 
 
   return (
     <main>
+      <ScrollToTop />
       <Header />
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/" element={<About/>}/>
-        <Route path="/" element={<Contact/>}/>
-      </Routes>
+      <Switch>
+        <Route exact path="/"><Home /></Route>
+        <Route exact path="/services"><Services /></Route>
+        <Route exact path="/contact"><Contact /></Route>
+      </Switch>
       <Footer />
     </main>
   )

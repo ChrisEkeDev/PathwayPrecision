@@ -1,0 +1,274 @@
+@use './index' as *;
+
+body, html {
+    margin: 0;
+    overflow-x: hidden;
+}
+.page-wrapper {
+    padding-top: 5rem;
+}
+
+.nav-wrapper {
+    @include flex-center-between;
+    @include box-shadow;
+    padding: 2rem 15%;
+    position: fixed;
+    z-index: 5;
+    background: white;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+
+    a {
+        position: relative;
+        text-decoration: none;
+        color: $accent-color;
+        font-family: "Outfit", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 400;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+        font-size: .80rem;
+    }
+    a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: $primary-color;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+    a:hover::after,
+    a.active::after {
+        transform: scaleX(1);
+    }
+    a.active {
+        color: $primary-color;
+    }
+}
+
+.nav-logo {
+    color: $primary-color;
+}
+
+.nav-links {
+    @include flex-center-list;
+    gap: 3rem;
+
+    li {
+        text-transform: uppercase;
+    }
+}
+
+
+
+
+.landing-wrapper {
+    position: relative;
+    padding: 3rem 15%;
+    background-color: #333;
+}
+
+.landing-introduction {
+    position: relative;
+    background: rgba($primary-color, 1);
+    color: white;
+    padding: 4rem;
+    width: 60%;
+    border-radius: .5rem;
+    top: 8rem;
+}
+
+
+
+
+.landing-list {
+    @include flex-column-list;
+    gap: 1rem;
+    padding: 0 1rem;
+    margin: 2rem 0 2.5rem;
+    li {
+        @include flex-center;
+        gap: .5rem;
+    }
+}
+
+.landing-button {
+    background: white;
+    color: $primary-color;
+    margin-top: 2rem;
+}
+
+.landing-body {
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin: 0;
+}
+
+.who-wrapper {
+    padding: 10rem 15%;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+
+}
+
+.subline {
+    color: $accent-color;
+    margin-bottom: .5rem;
+}
+
+.header {
+    color: $primary-color;
+}
+
+.image {
+    height: 350px;
+    aspect-ratio: 2 / 1.5;
+    background-color: #333;
+    border-radius: .5rem;
+}
+
+.services-wrapper {
+    padding: 5rem 15%;
+    background: #eee;
+}
+
+.services-lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.services-list {
+    @include flex-column-list;
+    gap: 1rem;
+    margin: 1rem 0 2.5rem;
+    li {
+        .list-icon {
+            color: $primary-color;
+        }
+        @include flex-center;
+        gap: .5rem;
+        font-size: 1rem;
+    }
+}
+
+.call-wrapper {
+    background: $primary-color;
+    padding: 4rem 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+
+    div {
+        width: 50%;
+    }
+
+    .header, .body {
+        color: white
+    }
+
+    .call-button {
+        background: white;
+        color: $primary-color;
+    }
+}
+
+.why-wrapper {
+    padding: 8rem 15%;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.form-wrapper {
+    background: #eee;
+    padding: 8rem 15%;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    .input-wrapper {
+        position: relative;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .input {
+        padding: .75rem 1rem;
+        font-family: "Outfit", sans-serif;
+        @include inputs;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 14pt;
+    }
+
+    .textarea {
+        font-family: "Outfit", sans-serif;
+        padding: .75rem 1rem;
+        height: 7rem;
+        font-size: 14pt;
+        @include inputs;
+        resize: none;
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+
+    .form-button {
+        background: $primary-color;
+        color: white;
+        align-self: flex-end;
+    }
+
+
+}
+
+.our-services-wrapper {
+    padding: 8rem 15%;
+    color: white;
+    background-color: #333;
+}
+
+.our-services-introduction {
+    width: 60%;
+}
+
+.our-service-wrapper {
+    padding: 5rem 15%;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+
+.footer-wrapper {
+    padding: 4rem 15%;
+    background: $primary-color;
+    color: white;
+    @include flex-center-between;
+}
+
+.footer-links {
+    @include flex-center-list;
+    gap: 2rem;
+
+    li {
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
